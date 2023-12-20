@@ -9,7 +9,7 @@ import SwiftUI
 
 let backgroundColor = Color("pink")
 
-struct BaseApp: View {
+struct Signup: View {
     
     @State private var name: String = ""
     
@@ -70,5 +70,5 @@ struct BaseApp: View {
 
     
 #Preview {
-    BaseApp()
+    Signup()
 }

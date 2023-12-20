@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct ChangingIcons: View {
+    //place this tag in the pages want to show the footer
+    @State private var selectedTab: Tab = .house
+    
+    //initializer we are calling a tabbar to not reserve an empty space
+    init(){
+        UITabBar.appearance().isHidden = true
+    }
+    let data: [String] = []
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        ZStack {
+            VStack{
+                TabView(selection: $selectedTab) {
+                    ForEach(Tab.allCases, id:\.rawValue){ tab in
+                        HStack {
+                            Image(systemName: tab.rawValue)
+                            Text("\(tab.rawValue.capitalized)")
+                                .bold()
+                                .animation(nil, value: selectedTab)
+                        }.tag(tab)
+                    }
+                }
+            }
+            
+        }
+        VStack {
+            //here is my navbar
+            headerFooter(selectedTab: $selectedTab)
+        }
+            
+        
     }
 }
 

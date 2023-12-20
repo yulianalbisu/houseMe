@@ -7,12 +7,39 @@
 
 import SwiftUI
 
-struct profile: View {
+struct Profile: View {
+    
+    //initializer we are calling a tabbar to not reserve an empty space
+    init(){
+        UITabBar.appearance().isHidden = false
+    }
+    let data: [String] = []
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        ZStack {
+            Color("b").ignoresSafeArea()
+            
+            VStack{
+                
+                Image("logo 1").resizable().frame(width: 125.0, height: 75.0).scaledToFit().clipShape(Circle())
+                Text("Olivia Rodrigo")
+                
+            }
+            
+            
+                    }
+        
+        VStack {
+            //here is my navbar
+            NavBar()
+        }
+        
+        
+            
+        
     }
 }
 
 #Preview {
-    profile()
+    Profile()
 }
